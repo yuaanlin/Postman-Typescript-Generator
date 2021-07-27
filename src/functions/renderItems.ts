@@ -1,6 +1,7 @@
 import { Folder, Items, Request1 } from '../type';
 import extractWord from './extractWord';
 import isFolder from './isFolder';
+import renderAPIFunctionParams from './renderAPIFunctionParams';
 import renderAPIReturn from './renderAPIReturn';
 import renderAPIUrl from './renderAPIUrl';
 import renderTabs from './renderTabs';
@@ -57,6 +58,3 @@ ${renderTabs(level)}const req = new FormData();${appends}
 }
 
 export default renderItems;
-function renderAPIFunctionParams(item: Items, folderName: string) {
-  throw new Error('Function not implemented.');
-}
