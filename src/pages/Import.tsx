@@ -24,15 +24,42 @@ function Import(props: { handleFileChange: (f: FileType[]) => void }) {
             Yuanlin Lin (ken20001207)
           </a>
         </p>
-        <Uploader
-          style={{ marginTop: 32 }}
-          autoUpload={false}
-          onChange={props.handleFileChange}
+        <div
+          style={{
+            borderWidth: 2,
+            borderColor: 'rgba(0,0,0,0.2)',
+            borderStyle: 'solid',
+            marginTop: 32,
+            padding: 16,
+            borderRadius: 16,
+          }}
         >
-          <Button>Import</Button>
-        </Uploader>
+          <Uploader autoUpload={false} onChange={props.handleFileChange}>
+            <Button>Import</Button>
+          </Uploader>
+          <p>
+            Import from <strong>Postman Collection v2.1</strong> JSON file
+          </p>
+        </div>
+        <p style={{ marginTop: 64 }}>
+          If you just want to see a demo, you can download{' '}
+          <a
+            href="/example.postman_collection.json"
+            download="example.postman_collection.json"
+          >
+            this example
+          </a>{' '}
+          collection file.
+        </p>
         <p>
-          Import from <strong>Postman Collection v2.1</strong> JSON file
+          You can see the postman documentation of this example collection{' '}
+          <a
+            href="https://documenter.getpostman.com/view/11030603/TzsbMU3s"
+            target="_blank"
+            rel="noreferrer"
+          >
+            at here
+          </a>
         </p>
       </div>
       <div style={{ position: 'fixed', bottom: '10%' }}>

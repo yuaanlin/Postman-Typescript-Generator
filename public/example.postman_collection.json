@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "442c1063-d1d8-4716-9601-58694f3e58a9",
+		"name": "Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "使用者 user",
+			"item": [
+				{
+					"name": "創建使用者 Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "string",
+									"description": "(string) 帳號",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "string",
+									"description": "(string) 密碼",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "string",
+									"description": "(string) 名字",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "# Response\nLoginResponse"
+					},
+					"response": []
+				},
+				{
+					"name": "編輯使用者 Edit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "string",
+									"description": "(string) 名字",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "string",
+									"description": "(string) 帳號",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "string",
+									"description": "(string) 密碼",
+									"type": "text"
+								},
+								{
+									"key": "introduce",
+									"value": "string",
+									"description": "(string) 自我介紹",
+									"type": "text"
+								},
+								{
+									"key": "AvatarURL",
+									"value": "string",
+									"description": "(string) 大頭照",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/user/:userId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<ObjectId>",
+									"description": "(ObjectID) 要編輯的user id"
+								}
+							]
+						},
+						"description": "# Response\nUser"
+					},
+					"response": []
+				},
+				{
+					"name": "搜尋使用者 GetMany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user?name=string&email=string&skip=int&limit=int",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "string",
+									"description": "(string) 名字"
+								},
+								{
+									"key": "email",
+									"value": "string",
+									"description": "(string) 信箱"
+								},
+								{
+									"key": "skip",
+									"value": "int",
+									"description": "(int) 跳過幾筆資料"
+								},
+								{
+									"key": "limit",
+									"value": "int",
+									"description": "(int) 回傳幾筆資料"
+								}
+							]
+						},
+						"description": "# Response\nUser"
+					},
+					"response": []
+				},
+				{
+					"name": "查詢單一使用者 GetOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/:userId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<ObjectId>",
+									"description": "要查詢的使用者id"
+								}
+							]
+						},
+						"description": "# Response\nUser[]"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "文章圖片 photo",
+			"item": [
+				{
+					"name": "上傳文章 Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"value": "png",
+									"description": "(string) 圖片連結",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "int",
+									"description": "(int) 分類",
+									"type": "text"
+								},
+								{
+									"key": "introduce",
+									"value": "string",
+									"description": "(string) 文章介紹",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/photo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photo"
+							]
+						},
+						"description": "# Response\nPhoto"
+					},
+					"response": []
+				},
+				{
+					"name": "編輯文章 Edit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "string",
+									"contentType": "",
+									"description": "(int) 分類",
+									"type": "text"
+								},
+								{
+									"key": "introduce",
+									"value": "string",
+									"contentType": "text/plain",
+									"description": "(string) 文章介紹",
+									"type": "text"
+								},
+								{
+									"key": "isDelete",
+									"value": "bool",
+									"contentType": "bool",
+									"description": "(bool) 是否刪除",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/photo/:photoId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photo",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "<OdjectId>",
+									"description": "要編輯文章的ID"
+								}
+							]
+						},
+						"description": "# Response\nPhoto"
+					},
+					"response": []
+				},
+				{
+					"name": "查詢單一文章照片 GetOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/photo/:photoId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photo",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "<OdjectId>",
+									"description": "要查詢的文章ID"
+								}
+							]
+						},
+						"description": "# Response\nPhoto"
+					},
+					"response": []
+				},
+				{
+					"name": "搜尋圖片 GetMany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/photo?type=int&introduce=string&time=time.Time&user=string&skip=int&limit=int",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photo"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "int",
+									"description": "(int) 分類"
+								},
+								{
+									"key": "introduce",
+									"value": "string",
+									"description": "(string) 內文"
+								},
+								{
+									"key": "time",
+									"value": "time.Time",
+									"description": "(Date) 時間"
+								},
+								{
+									"key": "user",
+									"value": "string",
+									"description": "(string) 使用者名字"
+								},
+								{
+									"key": "skip",
+									"value": "int",
+									"description": "(int) 跳過幾筆資烙"
+								},
+								{
+									"key": "limit",
+									"value": "int",
+									"description": "(int) 回傳幾筆資料"
+								}
+							]
+						},
+						"description": "# Response\nPhoto[]"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
