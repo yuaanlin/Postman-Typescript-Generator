@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { FileType } from 'rsuite/lib/Uploader';
 import Import from './pages/Import';
-import Result from './pages/Result';
+import Result2 from './pages/Result2';
 import { HttpsSchemaGetpostmanComJsonCollectionV210 } from './type';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   return (
     <div style={{ height: '100vh' }}>
       {!postman && <Import handleFileChange={handleFileChange} />}
-      {postman && <Result postman={postman} />}
+      {postman && <Result2 postman={postman} />}
     </div>
   );
 }

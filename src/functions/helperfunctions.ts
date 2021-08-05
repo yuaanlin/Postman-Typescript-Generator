@@ -1,20 +1,26 @@
-const helperFunctions = `const camelToSnakeCase = (str: string) =>
-str.replace(/[A-Z]/g, (letter) => \`_\${letter.toLowerCase()}\`);
+const helperFunctions = `function request(
+  method: Method,
+  url: string,
+  data: string | FormData | undefined,
+  params: object
+) {
+  const token = store.getState().session.token; // import store from redux
+  
+  const config: AxiosRequestConfig = {
+    method,
+    baseURL, // import from config file
+    url,
+    headers: {
+      Authorization: token || 'empty'
+    },
+    data,
+    params,
+  };
 
-function withQuery(path: string, query: Object) {
-  let newPath = path;
-  if (!path.endsWith('/')) {
-    newPath += '/';
-  }
-  newPath += '?';
-  Object.entries(query).forEach(
-    ([key, value]) => (newPath += \`&\${camelToSnakeCase(key)}=\${value}\`)
-  );
-  return newPath;
+  return axios(config);
 }
 
-function isResOk(res: Response) {
-	return Math.round(res.status / 100) === 2;
-}`;
+export default request;
+`;
 
 export default helperFunctions;

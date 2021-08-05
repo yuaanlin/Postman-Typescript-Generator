@@ -6,6 +6,7 @@ function extractWord(
   let res = '';
   word.split('').map((c) => isLetter(c) && (res += c));
   if (firstUppercase) res = res.charAt(0).toUpperCase() + res.slice(1);
+  else res = res.charAt(0).toLocaleLowerCase() + res.slice(1);
   return res;
 }
 

@@ -1,5 +1,10 @@
 import { Items, Request1 } from '../type';
-import hasQueryParams from './hasQueryParams';
+
+export function getAPIMethod(item: Items) {
+  const request = item.request as Request1;
+  if (!request.method) return 'GET';
+  return request.method;
+}
 
 function renderAPIUrl(item: Items) {
   let res = '';
@@ -18,10 +23,6 @@ function renderAPIUrl(item: Items) {
       }
       return null;
     });
-  }
-
-  if (hasQueryParams(item)) {
-    return 'withQuery(`' + res + '`, params)';
   }
 
   return '`' + res + '`';

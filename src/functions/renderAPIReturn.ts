@@ -2,15 +2,10 @@ import { Items, Request1 } from '../type';
 import extractWord from './extractWord';
 import renderTabs from './renderTabs';
 
-function renderAPIReturn(item: Items, level: number = 0) {
+export function getAPIResponseType(item: Items) {
   const request = item.request as Request1;
 
-  if (!request.description)
-    return `
-${renderTabs(
-  level
-)}// Please declare the API response type in the postman documention!
-${renderTabs(level)}return parsedRes as any`;
+  if (!request.description) return `any`;
 
   let d = '';
 
@@ -32,6 +27,21 @@ ${renderTabs(level)}return parsedRes as any`;
     if (line === '# Response') isNext = true;
     return null;
   });
+
+  return responseType;
+}
+
+function renderAPIReturn(item: Items, level: number = 0) {
+  const request = item.request as Request1;
+
+  if (!request.description)
+    return `
+${renderTabs(
+  level
+)}// Please declare the API response type in the postman documention!
+${renderTabs(level)}return parsedRes as any`;
+
+  let responseType = getAPIResponseType(item);
 
   if (responseType.endsWith('[]')) {
     responseType = responseType.replace('[]', '');
