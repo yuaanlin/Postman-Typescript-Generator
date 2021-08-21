@@ -24,7 +24,7 @@ export function getAPIResponseType(item: Items) {
   let responseType = '';
   lines.map((line) => {
     if (isNext) responseType = line;
-    if (line === '# Response') isNext = true;
+    if (line.startsWith('#') && line.includes('Response')) isNext = true;
     return null;
   });
 
