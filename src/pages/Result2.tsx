@@ -12,7 +12,6 @@ function Result(props: {
     <div>
       <h1>src/utils/request.ts</h1>
       <SyntaxHighlighter
-        showLineNumbers
         lineNumberStyle={{ opacity: 0.4 }}
         language="typescript"
         customStyle={{ marginTop: 0 }}
@@ -22,7 +21,6 @@ function Result(props: {
       </SyntaxHighlighter>
       <h1>src/types/forms.ts</h1>
       <SyntaxHighlighter
-        showLineNumbers
         lineNumberStyle={{ opacity: 0.4 }}
         language="typescript"
         customStyle={{ marginTop: 0 }}
@@ -32,7 +30,6 @@ function Result(props: {
       </SyntaxHighlighter>
       <h1>src/types/queries.ts</h1>
       <SyntaxHighlighter
-        showLineNumbers
         lineNumberStyle={{ opacity: 0.4 }}
         language="typescript"
         customStyle={{ marginTop: 0 }}
@@ -45,7 +42,6 @@ function Result(props: {
         <div>
           <h1>{collection.fileName}</h1>
           <SyntaxHighlighter
-            showLineNumbers
             lineNumberStyle={{ opacity: 0.4 }}
             language="typescript"
             customStyle={{ marginTop: 0 }}

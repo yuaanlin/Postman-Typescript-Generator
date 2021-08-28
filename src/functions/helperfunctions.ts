@@ -1,9 +1,9 @@
-const helperFunctions = `function request(
+const helperFunctions = `function request<ResponseType>(
   method: Method,
   url: string,
   data: string | FormData | undefined,
   params: object
-) {
+): AxiosPromise<ResponseType> {
   const token = store.getState().session.token; // import store from redux
   
   const config: AxiosRequestConfig = {
@@ -14,7 +14,7 @@ const helperFunctions = `function request(
       Authorization: token || 'empty'
     },
     data,
-    params,
+    params
   };
 
   return axios(config);

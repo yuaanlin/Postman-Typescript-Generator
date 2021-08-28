@@ -25,7 +25,7 @@ ${renderTabs(1)}${f.key}: ${getType(f.description)}`;
   });
 
   return `
-interface ${interfaceName} {${content}
+export interface ${interfaceName} {${content}
 }
 `;
 }
@@ -50,7 +50,7 @@ ${renderTabs(1)}${q.key}?: ${getType(q.description)};`;
   });
 
   return `
-interface ${interfaceName} {${content}
+export interface ${interfaceName} {${content}
 }
 `;
 }
